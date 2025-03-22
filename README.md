@@ -4,7 +4,7 @@
 ## run use local model
 
 ```sh
-cargo run assets/football.jpg --task pose --model ../models/yolov8s-pose.safetensors 
+cargo run --release assets/football.jpg --task pose --model ../models/yolov8s-pose.safetensors 
 ```
 
 ## run use remote model
@@ -38,7 +38,7 @@ leave your phone/computer!
 
 ### Object Detection
 ```bash
-cargo run --example yolo-v8 --release -- candle-examples/examples/yolo-v8/assets/bike.jpg
+cargo run --release --example yolo-v8  -- candle-examples/examples/yolo-v8/assets/bike.jpg
 ```
 
 This prints details about the detected objects and generates a `bike.pp.jpg` file.
@@ -52,13 +52,15 @@ Image source:
 
 ### Pose Estimation
 ```bash
-cargo run --example yolo-v8 --release -- \
+cargo run --release --example yolo-v8  -- \
   candle-examples/examples/yolo-v8/assets/bike.jpg --task pose
 ```
-
 ![Leading group, Giro d'Italia 2021](./assets/bike.pose.jpg)
 
 ### Command-line flags
+
+## Note:
+cargo run --release , or it will run slowly.
 
 - `--which`: select the model variant to be used, `n`, `s` , `m`, `l`, or `x` by
   increasing size and quality.
