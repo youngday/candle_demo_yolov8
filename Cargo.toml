@@ -1,15 +1,21 @@
 [package]
 name = "candle_demo_yolov8"
 version = "0.1.0"
-edition = "2021"
+edition = "2024"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+# [profile.release]
+# rustflags = ["-C", "target-feature=+fullfp16"]
+
+# [profile.dev]
+# rustflags = ["-C", "target-feature=+fullfp16"]
 
 [dependencies]
 anyhow = "1.0"
-candle = { package = "candle-core", version = "0.8" }
-candle-nn = {  version = "0.8" }
-candle-transformers = {  version = "0.8" }
+candle = { package = "candle-core", version = "0.9.1" }
+candle-nn = {  version = "0.9.1" }
+candle-transformers = {  version = "0.9.1" }
+candle-onnx = "0.9.1"
 clap = { version = "4.5", features = ["derive"] }
 hf-hub = "0.4"
 image = { version = "0.25", default-features = false, features = ["jpeg", "png"] }
@@ -22,4 +28,5 @@ tracing-subscriber = "0.3"
 ab_glyph = "0.2"
 serde_plain = "1.0"
 serde_json = "1.0"
+
 
