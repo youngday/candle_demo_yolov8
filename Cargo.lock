@@ -309,8 +309,8 @@ dependencies = [
 ]
 
 [[package]]
-name = "candle_demo_yolov8"
-version = "0.1.0"
+name = "candle_examples"
+version = "0.1.1"
 dependencies = [
  "ab_glyph",
  "anyhow",

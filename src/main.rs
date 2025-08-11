@@ -104,7 +104,7 @@ pub fn report_detect(
         for b in bboxes_for_class.iter() {
             println!(
                 "{}: {:?}",
-                candle_demo_yolov8::coco_classes::NAMES[class_index],
+                candle_examples::coco_classes::NAMES[class_index],
                 b
             );
             let xmin = (b.xmin * w_ratio) as i32;
@@ -126,12 +126,12 @@ pub fn report_detect(
                 );
                 let legend = format!(
                     "{}   {:.0}%",
-                    candle_demo_yolov8::coco_classes::NAMES[class_index],
+                    candle_examples::coco_classes::NAMES[class_index],
                     100. * b.confidence
                 );
                 imageproc::drawing::draw_text_mut(
                     &mut img,
-                    image::Rgb([255, 255, 255]),
+                    image::Rgb([255, 255, 255]),//blue
                     xmin,
                     ymin,
                     ab_glyph::PxScale {
@@ -212,12 +212,12 @@ pub fn report_pose(
 
             let legend = format!(
                 "{}:{:.2}%",
-                candle_demo_yolov8::coco_classes::NAMES[0],//just input1
+                candle_examples::coco_classes::NAMES[0],//just input1
                 100. * b.confidence
             );
             imageproc::drawing::draw_text_mut(
                 &mut img,
-                image::Rgb([255, 255, 255]),
+                image::Rgb([0, 0, 255]),//blue
                 xmin,
                 ymin,
                 ab_glyph::PxScale {
@@ -389,15 +389,14 @@ impl Task for YoloV8Pose {
         h: usize,
         confidence_threshold: f32,
         nms_threshold: f32,
-        legend_size: u32,
+        _legend_size: u32,
     ) -> Result<DynamicImage> {
-        //TODO:youngday:0422: add detect to pose
-        report_pose(pred, img.clone(), w, h, confidence_threshold, nms_threshold,legend_size)
+        report_pose(pred, img, w, h, confidence_threshold, nms_threshold, _legend_size)
     }
 }
 
 pub fn run<T: Task>(args: Args) -> anyhow::Result<()> {
-    let device=candle_demo_yolov8::device(args.cpu)?;
+    let device = candle_examples::device(args.cpu)?;
     // Create the model and load the weights from the file.
     let multiples = match args.which {
         Which::N => Multiples::n(),
