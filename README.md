@@ -3,8 +3,14 @@
 
 ## run use local model
 
+pose
 ```sh
-cargo run --release assets/football.jpg --task pose --model ../models/yolov8s-pose.safetensors 
+cargo run --release assets/football.jpg --task pose --model ../models/yolov8s-pose.safetensors --which s
+```
+detect
+
+```sh
+cargo run --release assets/football.jpg --task detect --model ../models/yolov8s.safetensors --which s
 ```
 
 ## run use remote model
@@ -68,3 +74,7 @@ cargo run --release , or it will run slowly.
 - `--legend-size`: the size of the characters to print.
 - `--model`: use a local model file rather than downloading it from the hub.
 
+## safeetensors models 
+
+https://huggingface.co/spaces/lmz/candle-yolo
+https://huggingface.co/lmz/candle-yolo-v8/tree/main
