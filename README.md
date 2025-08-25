@@ -54,14 +54,14 @@ This prints details about the detected objects and generates a `bike.pp.jpg` fil
 Image source:
 [wikimedia](https://commons.wikimedia.org/wiki/File:Leading_group,_Giro_d%27Italia_2021,_Stage_15.jpg).
 
-![Leading group, Giro d'Italia 2021](./assets/bike.od.jpg)
+![Leading group, Giro d'Italia 2021](./assets/bike.pp.jpg)
 
 ### Pose Estimation
 ```bash
 cargo run --release --example yolo-v8  -- \
   candle-examples/examples/yolo-v8/assets/bike.jpg --task pose
 ```
-![Leading group, Giro d'Italia 2021](./assets/bike.pose.jpg)
+![Leading group, Giro d'Italia 2021](./assets/football.pp.jpg)
 
 ### Command-line flags
 
