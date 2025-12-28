@@ -3,13 +3,6 @@ name = "candle_examples"
 version = "0.1.1"
 edition = "2024"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-# [profile.release]
-# rustflags = ["-C", "target-feature=+fullfp16"]
-
-# [profile.dev]
-# rustflags = ["-C", "target-feature=+fullfp16"]
-
 [dependencies]
 anyhow = "1.0"
 candle = { package = "candle-core", version = "0.9.2-alpha.2" }
